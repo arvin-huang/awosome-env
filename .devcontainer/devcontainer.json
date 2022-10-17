@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.195.0/containers/javascript-node
+{
+	"name": "awosome-env",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 16, 14, 12.
+		// Append -bullseye or -buster to pin to an OS version.
+		// Use -bullseye variants on local arm64/Apple Silicon.
+		"args": {}
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"golang.go",
+				"xiaoxin-technology.goctl",
+				"kangping.protobuf",
+				"wayou.vscode-todo-highlight",
+				"zxh404.vscode-proto3",
+				"vscodevim.vim",
+				"xaver.clang-format",
+				"wmaurer.change-case"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [3000],
+
+	// Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
+	"portsAttributes": {
+		"3000": {
+			"label": "Hello Remote World",
+			"onAutoForward": "notify"
+		}
+	},
+	"runArgs": [
+		// "--privileged",
+		"--network=awosome-network",
+		"--dns=114.114.114.114"
+	],
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "root",
+	"mounts": [
+		"source=go_env,target=/usr/local/go,type=volume"
+	],
+
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"workspaceFolder": "/workspace"
+
+}
