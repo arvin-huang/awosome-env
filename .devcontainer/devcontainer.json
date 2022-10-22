@@ -53,10 +53,11 @@
 	"mounts": [
 		"source=go_env,target=/usr/local/go,type=volume",
 		"source=root_config,target=/root/.config,type=volume",
-		"source=root_ssh,target=/root/.ssh,type=volume"
-	],
+		"source=root_ssh,target=/root/.ssh,type=volume",
+		"source=repos,target=/root/repos,type=volume"
+	]
 
-	"workspaceMount": "source=${localWorkspaceFolder},target=/root/workspcae,type=bind,consistency=cached",
-	"workspaceFolder": "/root/workspcae"
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/root/workspcae,type=bind,consistency=cached",
+	// "workspaceFolder": "/root/workspcae"
 
 }
